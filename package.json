@@ -4,6 +4,12 @@
   "scripts": {
     "build": "npm --prefix plugins/my-custom-block run build",
     "start": "npm --prefix plugins/my-custom-block run start",
-    "wp": "docker compose run --rm wpcli"
+    "wp": "docker compose run --rm wpcli",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "eslint": "^9.27.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.5.3"
   }
 }
