@@ -1,0 +1,12 @@
+{
+  "name": "my-custom-block",
+  "version": "0.1.0",
+  "description": "Example block",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^26.0.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+    "apiVersion": 2,
+    "name": "create-block/my-custom-block",
+    "version": "0.1.0",
+    "title": "My Custom Block",
+    "category": "widgets",
+    "icon": "smiley",
+    "description": "Example block",
+    "supports": {
+        "html": false
+    },
+    "textdomain": "my-custom-block",
+    "editorScript": "file:./build/index.js",
+    "editorStyle": "file:./build/index.css",
+    "style": "file:./build/style-index.css"
+}
