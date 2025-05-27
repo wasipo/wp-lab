@@ -12,7 +12,9 @@ This repository provides a local environment for building and testing custom Gut
    ```bash
    docker-compose up -d
    ```
-   WordPress will be available at [http://localhost:8000](http://localhost:8000).
+   Once the containers start, WordPress will automatically be installed and the
+   example plugin activated. Access the site at
+   [http://localhost:8000](http://localhost:8000).
 
 2. Install block development dependencies:
    ```bash
@@ -29,10 +31,10 @@ This repository provides a local environment for building and testing custom Gut
    npm run start
    ```
 
-4. Activate the plugin inside WordPress using WP-CLI:
-   ```bash
-   npm run wp plugin activate my-custom-block
-   ```
+If you ever need to reinstall WordPress or reactivate the example plugin, run:
+```bash
+npm run setup
+```
 
 The `npm run wp` command allows you to run any WP‑CLI command. For example, to install WordPress with test data:
 ```bash

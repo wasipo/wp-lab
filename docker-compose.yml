@@ -28,6 +28,7 @@ services:
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
     volumes:
+      - wp_data:/var/www/html
       - ./plugins:/var/www/html/wp-content/plugins
 
   wpcli:
@@ -35,10 +36,24 @@ services:
     depends_on:
       - wordpress
     volumes:
+      - wp_data:/var/www/html
       - ./plugins:/var/www/html/wp-content/plugins
+      - ./init.sh:/init.sh
     entrypoint: ["wp"]
     command: ["--path=/var/www/html"]
     tty: true
 
+  setup:
+    image: wordpress:cli
+    depends_on:
+      - wordpress
+    volumes:
+      - wp_data:/var/www/html
+      - ./plugins:/var/www/html/wp-content/plugins
+      - ./init.sh:/init.sh
+    entrypoint: ["sh", "/init.sh"]
+    restart: "no"
+
 volumes:
   db_data:
+  wp_data:

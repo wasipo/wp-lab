@@ -5,6 +5,7 @@
     "build": "npm --prefix plugins/my-custom-block run build",
     "start": "npm --prefix plugins/my-custom-block run start",
     "wp": "docker compose run --rm wpcli",
+    "setup": "docker compose run --rm wpcli sh /init.sh",
     "test": "jest"
   },
   "devDependencies": {
