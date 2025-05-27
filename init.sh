@@ -13,7 +13,7 @@ tries=0
 while ! wp --path="$WP_PATH" core version --allow-root >/dev/null 2>&1; do
   if [ "$tries" -ge 10 ]; then
     echo "WordPress files not found." >&2
-    break
+    exit 1
   fi
   echo "Waiting for WordPress files..."
   sleep 3
