@@ -39,6 +39,11 @@ services:
       - wp_data:/var/www/html
       - ./plugins:/var/www/html/wp-content/plugins
       - ./init.sh:/init.sh
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
     entrypoint: ["wp"]
     command: ["--path=/var/www/html"]
     tty: true
@@ -51,6 +56,11 @@ services:
       - wp_data:/var/www/html
       - ./plugins:/var/www/html/wp-content/plugins
       - ./init.sh:/init.sh
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
     entrypoint: ["sh", "/init.sh"]
     restart: "no"
 
