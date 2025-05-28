@@ -12,8 +12,19 @@
    ```bash
    docker-compose up -d
    ```
+   起動時には `setup` サービスが走り、`wp-config.php` が自動生成されます。
+   `docker-compose.yml` では `WORDPRESS_DB_HOST` などの環境変数で DB 接続情報を明示的に指定しています。
    コンテナが起動すると WordPress が自動的にインストールされ、サンプルプラグインが有効化されます。
    [http://localhost:8000](http://localhost:8000) にアクセスしてください。
+
+   既に `wp-config.php` が存在して設定が合わない場合は次を実行して再生成できます:
+   ```bash
+   npm run setup
+   ```
+   あるいはボリュームを削除してから再度 `docker-compose up -d` し直してください:
+   ```bash
+   docker-compose down -v
+   ```
 
 2. ブロック開発用の依存関係をインストールします:
    ```bash
