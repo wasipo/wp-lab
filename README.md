@@ -10,7 +10,7 @@
 
 1. Docker Compose を使って WordPress と MySQL を起動します:
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
    コンテナが起動すると WordPress が自動的にインストールされ、サンプルプラグインが有効化されます。
    [http://localhost:8000](http://localhost:8000) にアクセスしてください。
