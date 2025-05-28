@@ -18,6 +18,7 @@
 2. ブロック開発用の依存関係をインストールします:
    ```bash
    npm install
+   npm install --prefix plugins/my-custom-block
    ```
 
 3. サンプルブロックをビルドします:
