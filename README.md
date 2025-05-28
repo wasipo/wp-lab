@@ -1,48 +1,47 @@
-# WordPress Gutenberg Block Lab
+# WordPress Gutenberg ブロックラボ
 
-This repository provides a local environment for building and testing custom Gutenberg blocks.
+このリポジトリはカスタム Gutenberg ブロックを構築・テストするためのローカル環境を提供します。
 
-## Requirements
-- Docker and Docker Compose
-- Node.js 18 or later
+## 必要なもの
+- Docker と Docker Compose
+- Node.js 18 以上
 
-## Setup
+## セットアップ
 
-1. Start WordPress and MySQL using Docker Compose:
+1. Docker Compose を使って WordPress と MySQL を起動します:
    ```bash
    docker-compose up -d
    ```
-   Once the containers start, WordPress will automatically be installed and the
-   example plugin activated. Access the site at
-   [http://localhost:8000](http://localhost:8000).
+   コンテナが起動すると WordPress が自動的にインストールされ、サンプルプラグインが有効化されます。
+   [http://localhost:8000](http://localhost:8000) にアクセスしてください。
 
-2. Install block development dependencies:
+2. ブロック開発用の依存関係をインストールします:
    ```bash
    npm install
    ```
 
-3. Build the example block:
+3. サンプルブロックをビルドします:
    ```bash
    npm run build
    ```
 
-   For development with automatic rebuilds, run:
+   自動再ビルドを有効にした開発モードは次のとおりです:
    ```bash
    npm run start
    ```
 
-If you ever need to reinstall WordPress or reactivate the example plugin, run:
+WordPress を再インストールする必要がある場合やサンプルプラグインを再度有効化したい場合は次を実行します:
 ```bash
 npm run setup
 ```
 
-The `npm run wp` command allows you to run any WP‑CLI command. For example, to install WordPress with test data:
+`npm run wp` コマンドは任意の WP‑CLI コマンドを実行できます。例えばテストデータ付きで WordPress をインストールするには次のようにします:
 ```bash
 npm run wp core install --url=http://localhost:8000 --title=WP --admin_user=admin --admin_password=admin --admin_email=admin@example.com
 ```
 
-## Directory Structure
-- `docker-compose.yml` – Docker setup for WordPress, MySQL and WP‑CLI
-- `plugins/my-custom-block/` – Sample block plugin scaffolded with `@wordpress/create-block`
+## ディレクトリ構成
+- `docker-compose.yml` – WordPress、MySQL、WP‑CLI 用の Docker セットアップ
+- `plugins/my-custom-block/` – `@wordpress/create-block` で作成したサンプルブロックプラグイン
 
-After running the above commands you can immediately start modifying the files in `plugins/my-custom-block/src/` and see changes reflected in your local WordPress site.
+以上のコマンドを実行すると `plugins/my-custom-block/src/` のファイルを編集し、ローカル WordPress サイトで変更を確認できます。

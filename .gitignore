@@ -3,5 +3,3 @@ wp-content/plugins/*/node_modules/
 .env
 package-lock.json
 plugins/*/package-lock.json
-package-lock.json
-plugins/*/package-lock.json
