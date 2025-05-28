@@ -10,7 +10,7 @@
 
 1. Docker Compose を使って WordPress と MySQL を起動します:
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
    起動時には `setup` サービスが走り、`wp-config.php` が自動生成されます。
    `docker-compose.yml` では `WORDPRESS_DB_HOST` などの環境変数で DB 接続情報を明示的に指定しています。
