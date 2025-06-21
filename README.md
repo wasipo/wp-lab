@@ -1,30 +1,28 @@
 # WordPress Gutenberg ブロックラボ
 
-このリポジトリはカスタム Gutenberg ブロックを構築・テストするためのローカル環境を提供します。
+カスタム Gutenberg ブロックを手軽に開発するための WordPress 実行環境です。Docker を利用するのでローカルに WordPress をインストールする必要はありません。
 
 ## 必要なもの
 - Docker と Docker Compose
 - Node.js 18 以上
 
-## セットアップ
+## 使い方
 
-1. Docker Compose を使って WordPress と MySQL を起動します:
+1. コンテナを起動します
    ```bash
    docker compose up -d
    ```
-   起動時には `setup` サービスが走り、`wp-config.php` が自動生成されます。
-   `docker-compose.yml` では `WORDPRESS_DB_HOST` などの環境変数で DB 接続情報を明示的に指定しています。
-   コンテナが起動すると WordPress が自動的にインストールされ、サンプルプラグインが有効化されます。
+   初回起動時に `setup` サービスが実行され `wp-config.php` が生成されます。
+   WordPress 本体とサンプルプラグインも自動インストールされます。
    [http://localhost:8000](http://localhost:8000) にアクセスしてください。
 
-   既に `wp-config.php` が存在して設定が合わない場合は次を実行して再生成できます:
+   設定をやり直したい場合は次を実行します。
    ```bash
-   npm run setup
+   npm run setup          # 設定ファイルを再生成
+   # または
+   docker-compose down -v # ボリュームを削除して最初からやり直す
    ```
-   あるいはボリュームを削除してから再度 `docker-compose up -d` し直してください:
-   ```bash
-   docker-compose down -v
-   ```
+
 
 2. ブロック開発用の依存関係をインストールします:
    ```bash
@@ -42,14 +40,13 @@
    npm run start
    ```
 
-WordPress を再インストールする必要がある場合やサンプルプラグインを再度有効化したい場合は次を実行します:
-```bash
-npm run setup
-```
+WordPress を再インストールする必要がある場合やサンプルプラグインを再度有効化したいときは `npm run setup` を実行してください.
 
 `npm run wp` コマンドは任意の WP‑CLI コマンドを実行できます。例えばテストデータ付きで WordPress をインストールするには次のようにします:
 ```bash
-npm run wp core install --url=http://localhost:8000 --title=WP --admin_user=admin --admin_password=admin --admin_email=admin@example.com
+npm run wp core install --url=http://localhost:8000 
+  --title=WP --admin_user=admin 
+  --admin_password=admin --admin_email=admin@example.com
 ```
 
 ## ディレクトリ構成
